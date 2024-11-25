@@ -16,3 +16,23 @@ criar uma pasta .vscode e o aruqivo settings.json
     }
 }
 ```
+
+Configuração do next.config para não dar problema com as imagens vindas da url externa:
+
+```bash
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+
+```
